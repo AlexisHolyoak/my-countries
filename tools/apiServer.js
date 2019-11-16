@@ -53,6 +53,15 @@ server.post("/courses/", function (req, res, next) {
         next();
     }
 });
+server.post("/professors/", function(req,res, next){
+    const error = validateProfessor(req.body);
+    if (error) {
+        res.status(400).send(error);
+    } else {
+        //req.body.slug = createSlug(req.body.name); // Generate a slug for new professors.
+        next();
+    }
+});
 
 // Use default router
 server.use(router);
@@ -79,5 +88,8 @@ function validateCourse(course) {
     if (!course.category) return "Category is required.";
     return "";
 }
-
+function validateProfessor(professor) {
+    if (!professor.name) return "Name is required.";
+    return "";
+}
 //http://localhost:3001/courses?slug=ambientes-desarrollo-software

@@ -134,10 +134,15 @@ const newCourse = {
   professorId: null,
   category: ""
 };
+const newProfessor = {
+  id: null,
+  name: ""
+};
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   newCourse,
+  newProfessor,
   courses,
   professors
 };
