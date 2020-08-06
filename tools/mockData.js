@@ -1,148 +1,144 @@
-const courses = [
+const cities = [
   {
     id: 1,
-    title: "Ambientes de Desarrollo de Software",
-    slug: "ambientes-desarrollo-software",
-    professorId: 1,
-    category: "Software Engineering"
+    name: "Lima",
+    slug: "lima",
+    countryId: 1,
+    habitants: "1700"
   },
   {
     id: 2,
-    title: "Ingeniería de Requisitos",
-    slug: "ingenieria-requisitos",
-    professorId: 2,
-    category: "Software Engineering"
+    name: "Arequipa",
+    slug: "arequipa",
+    countryId: 1,
+    habitants: "2300"
   },
   {
     id: 3,
-    title: "Proceso de Ingeniería de Software",
-    slug: "proceso-ingenieria-software",
-    professorId: 3,
-    category: "Software Engineering"
+    name: "Trujillo",
+    slug: "trujillo",
+    countryId: 1,
+    habitants: "3800"
   },
   {
     id: 4,
-    title: "Gestión de Proyectos de Software",
-    slug: "gestion-proyectos-software",
-    professorId: 4,
-    category: "Software Engineering"
+    name: "Iquitos",
+    slug: "iquitos",
+    countryId: 1,
+    habitants: "1605"
   },
   {
     id: 5,
-    title: "Diseño y Construcción de Software",
-    slug: "diseño-construccion-software",
-    professorId: 1,
-    category: "Software Engineering"
+    name: "Chimbote",
+    slug: "chimbote",
+    countryId: 1,
+    habitants: "820"
   },
   {
     id: 6,
-    title: "Arquitectura de Software",
-    slug: "arquitectura-software",
-    professorId: 5,
-    category: "Software Engineering"
+    title: "Santiago de Chile",
+    slug: "santiago-de-chile",
+    countryId: 2,
+    habitants: "145"
   },
   {
     id: 7,
-    title: "Big Data",
-    slug: "big-data",
-    professorId: 6,
-    category: "Software Engineering"
+    title: "Puerto Montt",
+    slug: "puerto-montt",
+    countryId: 2,
+    habitants: "145"
   },
   {
     id: 8,
-    title: "Metodología de Investigación",
-    slug: "metodologia-investigacion",
-    professorId: 7,
-    category: "Research"
+    title: "Buenos Aires",
+    slug: "buenos-aires",
+    countryId: 3,
+    habitants: "23200"
   },
   {
     id: 9,
-    title: "Calidad del Proceso de Software",
-    slug: "calidad-proceso-software",
-    professorId: 8,
-    category: "Software Engineering"
+    title: "Mar de Plata",
+    slug: "mar-de-plata",
+    countryId: 3,
+    habitants: "89810"
   },
   {
     id: 10,
-    title: "Gestión de la Configuración y Mantenimiento de Software",
-    slug: "gestion-configuracion-mantenimiento-software",
-    professorId: 5,
-    category: "Software Engineering"
+    title: "La Paz",
+    slug: "la-paz",
+    countryId: 4,
+    habitants: "555400"
   },
   {
     id: 11,
-    title: "Seminario de Investigación I",
-    slug: "seminario-investigacion-i",
-    professorId: 8,
-    category: "Research"
+    title: "Bogota",
+    slug: "bogota",
+    countryId: 5,
+    habitants: "1254898"
   },
   {
     id: 12,
-    title: "Tecnología Cloud Computing (Electivo)",
-    slug: "tecnologia-cloud-computing",
-    professorId: 9,
-    category: "Software Engineering"
+    title: "Quito",
+    slug: "quito",
+    countryId: 6,
+    habitants: "985200"
   },
   {
     id: 13,
-    title: "Desarrollo de Software para Dispositivos",
-    slug: "desarrollo-software-dispositivos",
-    professorId: 1,
-    category: "Software Engineering"
+    title: "Asunción",
+    slug: "asuncion",
+    countryId: 7,
+    habitants: "584100"
   },
   {
     id: 14,
-    title: "Fábrica de Software",
-    slug: "fabrica-software",
-    professorId: 10,
-    category: "Software Engineering"
+    title: "Ciudad del Este",
+    slug: "ciudad-del-este",
+    countryId: 7,
+    habitants: "23338789"
   },
   {
     id: 15,
-    title: "Seminario de Investigación II",
-    slug: "seminario-investigacion-ii",
-    professorId: 11,
-    category: "Research"
+    title: "Caracas",
+    slug: "caracas",
+    countryId: 8,
+    habitants: "302235"
   },
   {
     id: 16,
-    title: "Gestión de Procesos de Negocio (Electivo)",
-    slug: "gestion-procesos-negocio",
-    professorId: 12,
-    category: "Software Engineering"
+    title: "Ciudad Bolivar",
+    slug: "ciudad-bolivar",
+    countryId: 8,
+    habitants: "302235"
   }
 ];
 
-const professors = [
-  { id: 1, name: "Efrain Bautista" },
-  { id: 2, name: "Wilder Inga" },
-  { id: 3, name: "Amador Izarra" },
-  { id: 4, name: "Elmer Zapata" },
-  { id: 5, name: "Félix Santos" },
-  { id: 6, name: "Luis Saavedra" },
-  { id: 7, name: "Nora La Serna" },
-  { id: 8, name: "Lenis Wong" },
-  { id: 9, name: "Manuel Caldas" },
-  { id: 10, name: "Luis Castillo" },
-  { id: 11, name: "David Mauricio" },
-  { id: 12, name: "Marco Rivas" },
+const countries = [
+  { id: 1, name: "Perú" },
+  { id: 2, name: "Chile" },
+  { id: 3, name: "Argentina" },
+  { id: 4, name: "Bolivia" },
+  { id: 5, name: "Colombia" },
+  { id: 6, name: "Ecuador" },
+  { id: 7, name: "Paraguay" },
+  { id: 8, name: "Venezuela" },  
 ];
 
-const newCourse = {
+const newCity = {
   id: null,
-  title: "",
-  professorId: null,
-  category: ""
+  name: "",
+  countryId: null,
+  habitants: ""
 };
-const newProfessor = {
+const newCountry = {
   id: null,
   name: ""
 };
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
-  newCourse,
-  newProfessor,
-  courses,
-  professors
+  newCity,
+  newCountry,
+  cities,
+  countries
 };

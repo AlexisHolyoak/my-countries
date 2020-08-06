@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
 
-const CourseForm = ({
-  course,
-  professors,
+const CityForm = ({
+  city,
+  countries,
   onSave,
   onChange,
   saving = false,
@@ -13,39 +13,39 @@ const CourseForm = ({
 }) => {
   return (
     <form onSubmit={onSave}>
-      <h2>{course.id ? "Edit" : "Add"} Course</h2>
+      <h2>{city.id ? "Edit" : "Add"} City</h2>
       {errors.onSave && (
         <div className="alert alert-danger" role="alert">
           {errors.onSave}
         </div>
       )}
       <TextInput
-        name="title"
-        label="Title"
-        value={course.title}
+        name="name"
+        label="Name"
+        value={city.name}
         onChange={onChange}
-        error={errors.title}
+        error={errors.name}
       />
 
       <SelectInput
-        name="professorId"
-        label="Professor"
-        value={course.professorId || ""}
-        defaultOption="Select Professor"
-        options={professors.map(professor => ({
-          value: professor.id,
-          text: professor.name
+        name="countryId"
+        label="Country"
+        value={city.countryId || ""}
+        defaultOption="Select Country"
+        options={countries.map(country => ({
+          value: country.id,
+          text: country.name
         }))}
         onChange={onChange}
-        error={errors.professor}
+        error={errors.country}
       />
 
       <TextInput
-        name="category"
-        label="Category"
-        value={course.category}
+        name="habitants"
+        label="Habitants"
+        value={city.habitants}
         onChange={onChange}
-        error={errors.category}
+        error={errors.habitants}
       />
 
       <button type="submit" disabled={saving} className="btn btn-primary">
@@ -55,13 +55,13 @@ const CourseForm = ({
   );
 };
 
-CourseForm.propTypes = {
-  professors: PropTypes.array.isRequired,
-  course: PropTypes.object.isRequired,
+CityForm.propTypes = {
+  countries: PropTypes.array.isRequired,
+  city: PropTypes.object.isRequired,
   errors: PropTypes.object,
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   saving: PropTypes.bool
 };
 
-export default CourseForm;
+export default CityForm;

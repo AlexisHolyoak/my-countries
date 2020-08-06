@@ -44,8 +44,8 @@ server.use((req, res, next) => {
     next();
 });
 
-server.post("/courses/", function (req, res, next) {
-    const error = validateCourse(req.body);
+server.post("/cities/", function (req, res, next) {
+    const error = validateCity(req.body);
     if (error) {
         res.status(400).send(error);
     } else {
@@ -53,8 +53,8 @@ server.post("/courses/", function (req, res, next) {
         next();
     }
 });
-server.post("/professors/", function(req,res, next){
-    const error = validateProfessor(req.body);
+server.post("/countries/", function(req,res, next){
+    const error = validateCountry(req.body);
     if (error) {
         res.status(400).send(error);
     } else {
@@ -82,14 +82,14 @@ function createSlug(value) {
         .toLowerCase();
 }
 
-function validateCourse(course) {
-    if (!course.title) return "Title is required.";
-    if (!course.professorId) return "Professor is required.";
-    if (!course.category) return "Category is required.";
+function validateCity(city) {
+    if (!city.name) return "Name is required.";
+    if (!city.countryId) return "Country is required.";
+    if (!city.habitants) return "Habitants number is required.";
     return "";
 }
-function validateProfessor(professor) {
-    if (!professor.name) return "Name is required.";
+function validateCountry(country) {
+    if (!country.name) return "Name is required.";
     return "";
 }
 //http://localhost:3001/courses?slug=ambientes-desarrollo-software

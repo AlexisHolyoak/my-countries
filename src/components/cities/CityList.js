@@ -2,29 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CourseList = ({ courses, onDeleteClick }) => (
+const CityList = ({ cities, onDeleteClick }) => (
   <table className="table">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Professor</th>
-        <th>Category</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Habitants</th>
         <th />
       </tr>
     </thead>
     <tbody>
-      {courses.map(course => {
+      {cities.map(city => {
         return (
-          <tr key={course.id}>
+          <tr key={city.id}>
             <td>
-              <Link to={"/course/" + course.slug}>{course.title}</Link>
+              <Link to={"/city/" + city.slug}>{city.name}</Link>
             </td>
-            <td>{course.ProfessorName}</td>
-            <td>{course.category}</td>
+            <td>{city.CountryName}</td>
+            <td>{city.habitants}</td>
             <td>
               <button
                 className="btn btn-outline-danger"
-                onClick={() => onDeleteClick(course)}
+                onClick={() => onDeleteClick(city)}
               >
                 Delete
               </button>
@@ -36,9 +36,9 @@ const CourseList = ({ courses, onDeleteClick }) => (
   </table>
 );
 
-CourseList.propTypes = {
-  courses: PropTypes.array.isRequired,
+CityList.propTypes = {
+  cities: PropTypes.array.isRequired,
   onDeleteClick: PropTypes.func.isRequired
 };
 
-export default CourseList;
+export default CityList;

@@ -1,5 +1,5 @@
 export default {
-  courses: [],
-  professors: [],
+  cities: [],
+  countries: [],
   apiCallsInProgress: 0
 };
